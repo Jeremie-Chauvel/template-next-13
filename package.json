@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "@axe-core/react": "4.4.4",
+    "@next/bundle-analyzer": "13.1.6",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "13.4.0",
     "@types/jest-axe": "3.5.4",

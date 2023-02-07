@@ -36,3 +36,19 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Docker
+
+```bash
+docker build .
+```
+
+```bash
+docker run -e PORT=3000 -e APP_ENV=local -p 3000:3000 <dockerBuildHash>
+```
+
+You can add any env var (secrets) as env var directly as well, APP_ENV is only used to select the loaded .env file, eg
+
+```bash
+docker run -e PORT=3000 -e NEXT_PUBLIC_API_BASE_URL=my-custom-url -p 3000:3000 <dockerBuildHash>
+```

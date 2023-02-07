@@ -34,12 +34,12 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 # handling runtime env var clientside
 COPY --chown=nextjs:nodejs .env.* ./
-# RUN chown nextjs:nodejs ./public/env
+COPY --chown=nextjs:nodejs gen_env.sh ./
+
 USER nextjs
-# RUN chmod -R u+w ./public/env
 
 EXPOSE 3000
 ENV PORT 3000
 ENV APP_ENV production
 
-CMD dumb-init node server.js
+CMD /app/gen_env.sh $APP_ENV && dumb-init node server.js

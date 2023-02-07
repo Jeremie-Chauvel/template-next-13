@@ -5,7 +5,7 @@
   "sideEffects": false,
   "scripts": {
     "build": "next build",
-    "dev": "next dev -p 3000",
+    "dev": "./gen_env.sh local && next dev -p 3000",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "lint:style": "stylelint './**/*.module.css'",
@@ -16,7 +16,7 @@
     "security": "audit-ci --config ./audit-ci.json",
     "start": "next start",
     "test": "jest",
-    "test:circular": "pnpm depcruise --validate .dependency-cruiser.js pages --ignore-known",
+    "test:circular": "depcruise --validate .dependency-cruiser.js pages --ignore-known",
     "test:coverage": "pnpm test -- --coverage",
     "test:type": "pnpm build"
   },
